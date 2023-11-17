@@ -63,21 +63,15 @@ samples: 50
 
 1. Plug in the CH34* cable into the `OBD2` port
 2. Turn the ignition `ON`
-3. **DO NOT START YOUR VEHICLE YET!**
+3. **DO NOT START YOUR VEHICLE YET!** `# note: if you lose connection you will have to shut off the engine to reconnect`
 4. Start the logger:  
     ```sh
     cd /path/to/ME7Logger
     ./bin/ME7Logger -p <COM4/ttyUSB0> your-binary_template.cfg
     # -p should match the port you found in previous step 6
     # your .cfg file should match on what you had generated in step 3
+    # previous steps 4.2 and 5 can be skipped by passing those values with -b 125000 and -s 50
     ```  
-    You can also skip the `.ecu` `LogSpeed` and `.cfg` `SamplesPerSecond` editing by overwriting them with `ME7Logger` options:
-    ```sh
-    cd /path/to/ME7Logger
-    ./bin/ME7Logger -p <COM4/ttyUSB0> -s 50 -b 125000 your-binary_template.cfg
-    # -p should match the port you found in previous step 6
-    # your .cfg file should match on what you had generated in step 3
-    ```
 5. Once you see `-> Start logging (logdatat size=39, 50...) oooOoOOooooOOOo` it means you're logging.
 
 That's it. After a run hit `CTRL+C` to stop the logger and locate your log in `/path/to/ME7Logger/logs/<name>_<date>_<time>.csv`
