@@ -50,25 +50,34 @@ samples: 50
     ```sh
     sed -i 's\SamplesPerSecond   = 20\SamplesPerSecond   = 50\g' logs/your-binary_template.cfg
     ```
-6. Note down which port the cable is using  
+6. Manually edit the `.cfg` file and uncomment which sensors you will be logging  
+    ```sh
+    vim logs/your-binary_template.cfg
+    # delete ';' in front of the sensor name
+    ```
+7. Note down which port the cable is using  
     6.1. *Windows*: Check `Device Manager` which `COM` port ir listed for device (`example: COM4`)  
     6.2. *Linux*: `sudo dmesg | grep 'ch341-uart\|tty' # example: ttyUSB0`
 
 ## Log
-  
-```sh
-cd /path/to/ME7Logger
-./bin/ME7Logger -p <COM4/ttyUSB0> your-binary_template.cfg
-# -p should match the port you found in previous step 6
-# your .cfg file should match on what you had generated in step 3
-```
 
-You can also skip the `.ecu` `LogSpeed` and `.cfg` `SamplesPerSecond` editing by overwriting them with `ME7Logger` options:
-```sh
-cd /path/to/ME7Logger
-./bin/ME7Logger -p <COM4/ttyUSB0> -s 50 -b 125000 your-binary_template.cfg
-# -p should match the port you found in previous step 6
-# your .cfg file should match on what you had generated in step 3
-```
+1. Plug in your cable into the `OBD2` port
+2. Turn the ignition `ON`
+3. DO NOT START YOUR VEHICLE YET!
+4. Start the logger:  
+    ```sh
+    cd /path/to/ME7Logger
+    ./bin/ME7Logger -p <COM4/ttyUSB0> your-binary_template.cfg
+    # -p should match the port you found in previous step 6
+    # your .cfg file should match on what you had generated in step 3
+    ```  
+    You can also skip the `.ecu` `LogSpeed` and `.cfg` `SamplesPerSecond` editing by overwriting them with `ME7Logger` options:
+    ```sh
+    cd /path/to/ME7Logger
+    ./bin/ME7Logger -p <COM4/ttyUSB0> -s 50 -b 125000 your-binary_template.cfg
+    # -p should match the port you found in previous step 6
+    # your .cfg file should match on what you had generated in step 3
+    ```
+5. Once you see `-> Start logging (logdatat size=39, 50...) oooOoOOooooOOOo` it means you're logging.
 
 That's it. After a run hit `CTRL+C` to stop the logger and locate your log in `/path/to/ME7Logger/logs/<name>_<date>_<time>.csv`
