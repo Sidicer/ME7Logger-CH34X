@@ -84,4 +84,5 @@ That's it. After a run hit `CTRL+C` to stop the logger and locate your log in `/
 
 ## Notes
 
-Tested and confirmed working with "KKL VAG-COM for 409.1" cable that has `CH340` chip inside on Windows 10 64-bit system and Arch Linux as well.
+ - Tested and confirmed working with "KKL VAG-COM for 409.1" cable that has `CH340` chip inside on Windows 10 64-bit system and Arch Linux as well.
+ - These settings can also be applied in `VisualME7Logger` in the `Options` tab
