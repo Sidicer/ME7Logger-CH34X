@@ -61,9 +61,9 @@ samples: 50
 
 ## Log
 
-1. Plug in your cable into the `OBD2` port
+1. Plug in the CH34* cable into the `OBD2` port
 2. Turn the ignition `ON`
-3. DO NOT START YOUR VEHICLE YET!
+3. **DO NOT START YOUR VEHICLE YET!**
 4. Start the logger:  
     ```sh
     cd /path/to/ME7Logger
@@ -81,3 +81,7 @@ samples: 50
 5. Once you see `-> Start logging (logdatat size=39, 50...) oooOoOOooooOOOo` it means you're logging.
 
 That's it. After a run hit `CTRL+C` to stop the logger and locate your log in `/path/to/ME7Logger/logs/<name>_<date>_<time>.csv`
+
+## Notes
+
+Tested and confirmed working with "KKL VAG-COM for 409.1" cable that has `CH340` chip inside on Windows 10 64-bit system and Arch Linux as well.
