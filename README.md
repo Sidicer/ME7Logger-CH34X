@@ -24,7 +24,7 @@ samples: 50
     2.2 *Linux*: https://www.wch-ic.com/downloads/CH341SER_LINUX_ZIP.html  
         2.2.1. `unzip CH341SER_LINUX.ZIP && cd CH341SER_LINUX/`  
         2.2.2. `make -si # Archlinux`  
-        2.2.2. `make && sudo make install # Debian`
+        2.2.3. `make && sudo make install # Debian`
 
 ## Preparation
 
@@ -56,8 +56,8 @@ samples: 50
     # delete ';' in front of the sensor name
     ```
 7. Note down which port the cable is using  
-    6.1. *Windows*: Check `Device Manager` which `COM` port ir listed for device (`example: COM4`)  
-    6.2. *Linux*: `sudo dmesg | grep 'ch341-uart\|tty' # example: ttyUSB0`
+    7.1. *Windows*: Check `Device Manager` which `COM` port ir listed for device (`example: COM4`)  
+    7.2. *Linux*: `sudo dmesg | grep 'ch341-uart\|tty' # example: ttyUSB0`
 
 ## Log
 
