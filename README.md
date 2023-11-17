@@ -18,13 +18,13 @@ samples: 50
     1.1 *Linux Build*: **ME7Logger_Linux_DIST_10072013_v1.20.tgz**  
     1.2 *Windows Build*: **ME7Logger_DIST_10072013_v1.20.zip**
 2. Install the driver for your CH34X based cable from  
-    2.1 *Windows*: https://www.wch-ic.com/downloads/CH341SER_EXE.html  
-        2.1.1 Just run the installer with your cable disconnected  
-        2.1.2 After installation plug-in your cable and check `Device Manager`  
+    2.1. *Windows*: https://www.wch-ic.com/downloads/CH341SER_EXE.html  
+        2.1.1. Just run the installer with your cable disconnected  
+        2.1.2. After installation plug-in your cable and check `Device Manager`  
     2.2 *Linux*: https://www.wch-ic.com/downloads/CH341SER_LINUX_ZIP.html  
-        2.2.1 `unzip CH341SER_LINUX.ZIP && cd CH341SER_LINUX/`  
-        2.2.2 `make -si # Archlinux`  
-        2.2.2 `make && sudo make install # Debian`
+        2.2.1. `unzip CH341SER_LINUX.ZIP && cd CH341SER_LINUX/`  
+        2.2.2. `make -si # Archlinux`  
+        2.2.2. `make && sudo make install # Debian`
 
 ## Preparation
 
@@ -51,3 +51,10 @@ samples: 50
     sed -i 's\SLOW-0x11\SLOW-0x00\g' ecus/your-binary.ecu
     sed -i 's\LogSpeed     = 56000\LogSpeed     = 125000\g' ecus/your-binary.ecu
     ```
+6. Note down which port the cable is using  
+    6.1. *Windows*: Check `Device Manager` which `COM` port ir listed for device  
+    6.2. *Linux*:
+        ```sh
+        sudo dmesg | grep 'ch341-uart\|tty'
+        ```
+## Log
